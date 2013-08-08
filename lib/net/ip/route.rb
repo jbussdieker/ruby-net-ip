@@ -43,6 +43,11 @@ module Net
         end
       end
 
+      def self.flush(selector)
+        result = `ip route flush #{selector}`
+        raise result unless $?.success?
+      end
+
 private
 
       def self.parse_line(line)
