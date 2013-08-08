@@ -6,6 +6,12 @@ module Net
 
       extend Enumerable
 
+      def initialize(params = {})
+        params.each do |k,v|
+          send("#{k}=", v)
+        end
+      end
+
       def to_s
         str = ""
         str << type << " " if type != "unicast"
@@ -43,6 +49,12 @@ module Net
         end
       end
 
+      def self.update_gateways(gws)
+        params = gws.collect {|gw| "nexthop via #{gw.via} dev #{gw.dev} weight #{gw.weight}"}.join(" ")
+        result = `ip route replace default #{params}`
+        raise result unless $?.success?
+      end
+
       def self.flush(selector)
         result = `ip route flush #{selector}`
         raise result unless $?.success?
@@ -51,27 +63,27 @@ module Net
 private
 
       def self.parse_line(line)
-        route = new
+        params = {}
 
         if line =~ /^(unicast|unreachable|blackhole|prohibit|local|broadcast|throw|nat|via|anycast|multicast)\s+/
-          route.type = $1
+          params[:type] = $1
           line = line[$1.length..-1]
         else
-          route.type = "unicast"
+          params[:type] = "unicast"
         end
 
-        route.prefix = line.split.first
-        route.dev = $1 if line =~ /\s+dev\s+([^\s]+)/
-        route.scope = $1 if line =~ /\s+scope\s+([^\s]+)/
-        route.metric = $1 if line =~ /\s+metric\s+([^\s]+)/
-        route.proto = $1 if line =~ /\s+proto\s+([^\s]+)/
-        route.src = $1 if line =~ /\s+src\s+([^\s]+)/
-        route.via = $1 if line =~ /\s+via\s+([^\s]+)/
-        route.weight = $1 if line =~ /\s+weight\s+([^\s]+)/
-        route.table = $1 if line =~ /\s+table\s+([^\s]+)/
-        route.error = $1 if line =~ /\s+error\s+([^\s]+)/
+        params[:prefix] = line.split.first
+        params[:dev] = $1 if line =~ /\s+dev\s+([^\s]+)/
+        params[:scope] = $1 if line =~ /\s+scope\s+([^\s]+)/
+        params[:metric] = $1 if line =~ /\s+metric\s+([^\s]+)/
+        params[:proto] = $1 if line =~ /\s+proto\s+([^\s]+)/
+        params[:src] = $1 if line =~ /\s+src\s+([^\s]+)/
+        params[:via] = $1 if line =~ /\s+via\s+([^\s]+)/
+        params[:weight] = $1 if line =~ /\s+weight\s+([^\s]+)/
+        params[:table] = $1 if line =~ /\s+table\s+([^\s]+)/
+        params[:error] = $1 if line =~ /\s+error\s+([^\s]+)/
 
-        route
+        new(params)
       end
 
       def self.parse_data(data, &block)
