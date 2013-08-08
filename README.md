@@ -9,12 +9,12 @@ require 'net/ip'
 
 Net::IP::Route.flush(:cache)
 
-Net::IP::Route.each do |rt|
-  p rt
+Net::IP::Route.each do |route|
+  puts route
 end
 
-Net::IP::Route.find_gateways("eth0").each do |gw|
-  puts gw.via
+Net::IP::Route.find_gateways("eth0").each do |gateway|
+  puts gateway.via
 end
 
 gws = ["192.168.0.1", "192.168.0.2"].collect do |ip|
