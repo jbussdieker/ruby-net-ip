@@ -1,6 +1,6 @@
-# Net::Ip
+# Net::IP
 
-TODO: Write a gem description
+Tools for working with IP routes
 
 ## Installation
 
