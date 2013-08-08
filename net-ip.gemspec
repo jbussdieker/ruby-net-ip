@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Joshua Bussdieker"]
   spec.email         = ["jbussdieker@gmail.com"]
   spec.summary       = %q{Tools for working with IP routes}
-  spec.homepage      = ""
+  spec.homepage      = "http://github.com/jbussdieker/ruby-net-ip"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
