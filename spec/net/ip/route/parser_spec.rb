@@ -1,9 +1,9 @@
-require 'net/ip/route_parser'
+require 'net/ip/route/parser'
 
-describe Net::IP::RouteParser do
+describe Net::IP::Route::Parser do
   context "line parser" do
     def test_parse_line(line, field, expect)
-      h = Net::IP::RouteParser.parse_line(line)
+      h = Net::IP::Route::Parser.parse_line(line)
       h[field].should eql(expect)
     end
 
@@ -46,11 +46,11 @@ describe Net::IP::RouteParser do
 
   context "parser" do
     def test_parse(file, expect)
-      Net::IP::RouteParser.parse(File.read(file)).should eql(expect)
+      Net::IP::Route::Parser.parse(File.read(file)).should eql(expect)
     end
 
     it "handles sample 1" do
-      test_parse("spec/net/ip/sample1", [
+      test_parse("spec/net/ip/route/sample1", [
         {:prefix=>"default", :dev=>"eth0", :proto=>"static", :via=>"192.168.0.1"},
         {:prefix=>"169.254.0.0/16", :dev=>"eth0", :scope=>"link", :metric=>"1000"},
         {:prefix=>"192.168.0.0/24", :dev=>"eth0", :scope=>"link", :metric=>"1", :proto=>"kernel", :src=>"192.168.0.15"}
@@ -58,7 +58,7 @@ describe Net::IP::RouteParser do
     end
 
     it "handles sample 2" do
-      test_parse("spec/net/ip/sample2", [
+      test_parse("spec/net/ip/route/sample2", [
         {:prefix=>"default", :dev=>"eth0", :via=>"10.0.61.225", :weight=>"1"},
         {:prefix=>"default", :dev=>"eth0", :via=>"10.0.45.153", :weight=>"1"},
         {:prefix=>"10.0.0.0", :dev=>"eth0", :via=>"10.0.0.1"},
@@ -68,7 +68,7 @@ describe Net::IP::RouteParser do
     end
 
     it "handles sample 3" do
-      test_parse("spec/net/ip/sample3", [
+      test_parse("spec/net/ip/route/sample3", [
         {:prefix=>"default", :dev=>"eth0", :via=>"10.0.35.196"},
         {:prefix=>"10.0.0.0", :dev=>"eth0", :via=>"10.0.0.1"},
         {:prefix=>"10.0.0.0/18", :dev=>"eth0", :scope=>"link", :proto=>"kernel", :src=>"10.0.58.155"},
@@ -77,7 +77,7 @@ describe Net::IP::RouteParser do
     end
 
     it "handles sample 4" do
-      test_parse("spec/net/ip/sample4", [
+      test_parse("spec/net/ip/route/sample4", [
         {:prefix=>"default", :dev=>"eth0", :via=>"192.168.0.1"},
         {:prefix=>"169.254.0.0/16", :dev=>"eth0", :scope=>"link", :metric=>"1000"},
         {:prefix=>"192.168.0.0/24", :dev=>"eth0", :scope=>"link", :metric=>"1", :proto=>"kernel", :src=>"192.168.0.15"},

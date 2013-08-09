@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Net::IP::VERSION
   spec.authors       = ["Joshua Bussdieker"]
   spec.email         = ["jbussdieker@gmail.com"]
-  spec.summary       = %q{Tools for working with IP routes}
+  spec.summary       = %q{Tools for working with IP routes and rules}
   spec.homepage      = "http://github.com/jbussdieker/ruby-net-ip"
   spec.license       = "MIT"
 

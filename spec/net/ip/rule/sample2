@@ -1,0 +1,13 @@
+0:	from all lookup local 
+32756:	from all to 1.2.3.1 lookup custom 
+32757:	from all to 1.2.3.2 lookup custom 
+32758:	from all to 1.2.3.3 lookup custom 
+32759:	from all to 1.2.3.4 lookup custom 
+32760:	from all to 1.2.3.5 lookup custom 
+32761:	from all to 1.2.3.6 lookup custom 
+32762:	from all to 1.2.3.7 lookup custom 
+32763:	from all to 1.2.3.8 lookup custom 
+32764:	from all to 1.2.3.9 lookup custom 
+32765:	from all to 1.2.3.10 lookup custom 
+32766:	from all lookup main 
+32767:	from all lookup default 
