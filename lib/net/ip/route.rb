@@ -72,8 +72,6 @@ module Net
         raise result unless $?.success?
       end
 
-private
-
       def build_param_string
         str = ""
         str << "via #{via} " if via

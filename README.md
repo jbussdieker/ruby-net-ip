@@ -17,7 +17,7 @@ Net::IP::Route.each do |route|
   puts route
 end
 
-Net::IP::Route.find_gateways("eth0").each do |gateway|
+Net::IP::Route.find_gateways.each do |gateway|
   puts gateway.via
 end
 
