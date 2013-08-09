@@ -1,0 +1,16 @@
+default via 192.168.0.1 dev eth0 
+169.254.0.0/16 dev eth0  scope link  metric 1000 
+192.168.0.0/24 dev eth0  proto kernel  scope link  src 192.168.0.15  metric 1 
+broadcast 127.0.0.0 dev lo  table local  proto kernel  scope link  src 127.0.0.1 
+local 127.0.0.0/8 dev lo  table local  proto kernel  scope host  src 127.0.0.1 
+local 127.0.0.1 dev lo  table local  proto kernel  scope host  src 127.0.0.1 
+broadcast 127.255.255.255 dev lo  table local  proto kernel  scope link  src 127.0.0.1 
+broadcast 192.168.0.0 dev eth0  table local  proto kernel  scope link  src 192.168.0.15 
+local 192.168.0.15 dev eth0  table local  proto kernel  scope host  src 192.168.0.15 
+broadcast 192.168.0.255 dev eth0  table local  proto kernel  scope link  src 192.168.0.15 
+fe80::/64 dev eth0  proto kernel  metric 256 
+unreachable default dev lo  table unspec  proto kernel  metric -1  error -101
+local ::1 via :: dev lo  table local  proto none  metric 0 
+local fe80::226:18ff:fe3a:3112 via :: dev lo  table local  proto none  metric 0 
+ff00::/8 dev eth0  table local  metric 256 
+unreachable default dev lo  table unspec  proto kernel  metric -1  error -101

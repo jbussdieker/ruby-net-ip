@@ -1,0 +1,4 @@
+default via 10.0.35.196 dev eth0 
+10.0.0.0 via 10.0.0.1 dev eth0 
+10.0.0.0/18 dev eth0  proto kernel  scope link  src 10.0.58.155 
+169.254.169.254 via 10.0.0.1 dev eth0 

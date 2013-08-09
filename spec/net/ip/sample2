@@ -1,0 +1,6 @@
+default 
+	nexthop via 10.0.61.225  dev eth0 weight 1
+	nexthop via 10.0.45.153  dev eth0 weight 1
+10.0.0.0 via 10.0.0.1 dev eth0 
+10.0.0.0/18 dev eth0  proto kernel  scope link  src 10.0.14.184 
+169.254.169.254 via 10.0.0.1 dev eth0 
