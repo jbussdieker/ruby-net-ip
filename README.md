@@ -1,5 +1,7 @@
 # Net::IP
 
+[![Gem Version](https://badge.fury.io/rb/net-ip.png)](http://badge.fury.io/rb/net-ip)
+
 Tools for working with IP routes
 
 ## Usage
