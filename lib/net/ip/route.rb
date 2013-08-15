@@ -2,7 +2,7 @@ module Net
   module IP
     # Class for working with routing table entries.
     class Route
-      attr_reader :prefix
+      attr_reader :prefix, :via
 
       # Create a new route object
       # @example Create a default route
