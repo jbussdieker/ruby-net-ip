@@ -38,7 +38,7 @@ module Net
         # @return {void}
         def update_gateways(gateways)
           params = gateways.collect {|gateway| "nexthop " + gateway.to_params}
-          result = `ip route replace default #{params.join(" ")}`
+          result = `ip route replace default table #{@table} #{params.join(" ")}`
           raise result unless $?.success?
         end
 
@@ -49,7 +49,7 @@ module Net
         # @param route {Route} Route to add to the table.
         # @return {void}
         def add(route)
-          result = `ip route add #{route.to_params}`
+          result = `ip route add table #{@table} #{route.to_params}`
           raise result unless $?.success?
         end
 

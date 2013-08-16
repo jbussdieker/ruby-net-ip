@@ -22,7 +22,6 @@ module Net
         str << "via #{@via} " if @via
         str << "dev #{@dev} " if @dev
         str << "weight #{@weight}" if @weight
-        str << " table #{@table} " if @table
         str << " proto #{@proto} " if @proto
         str << " scope #{@scope} " if @scope
         str << " src #{@src} " if @src
