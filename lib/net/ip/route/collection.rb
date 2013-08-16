@@ -7,7 +7,7 @@ module Net
       class Collection
         include Enumerable
 
-        def initialize(table = "main")
+        def initialize(table)
           @table = table
         end
 
