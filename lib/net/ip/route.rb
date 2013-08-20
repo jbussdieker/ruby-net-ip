@@ -17,6 +17,20 @@ module Net
         end
       end
 
+      def to_h
+        h = {}
+        h[:prefix] = @prefix if @prefix
+        h[:via] = @via if @via
+        h[:dev] = @dev if @dev
+        h[:weight] = @weight if @weight
+        h[:proto] = @proto if @proto
+        h[:scope] = @scope if @scope
+        h[:src] = @src if @src
+        h[:metric] = @metric if @metric
+        h[:error] = @error if @error
+        h
+      end
+
       def to_params
         str = ""
         str << "via #{@via} " if @via
