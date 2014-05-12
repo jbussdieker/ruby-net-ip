@@ -1,8 +1,9 @@
 # Net::IP
 
+[![Gem Version](https://badge.fury.io/rb/net-ip.png)](http://badge.fury.io/rb/net-ip)
 [![Build Status](https://travis-ci.org/jbussdieker/ruby-net-ip.png?branch=master)](https://travis-ci.org/jbussdieker/ruby-net-ip)
 [![Code Climate](https://codeclimate.com/github/jbussdieker/ruby-net-ip.png)](https://codeclimate.com/github/jbussdieker/ruby-net-ip)
-[![Gem Version](https://badge.fury.io/rb/net-ip.png)](http://badge.fury.io/rb/net-ip)
+[![Dependency Status](https://gemnasium.com/jbussdieker/ruby-net-ip.svg)](https://gemnasium.com/jbussdieker/ruby-net-ip)
 
 Tools for working with IP routes and rules
 
